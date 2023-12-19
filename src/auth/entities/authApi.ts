@@ -1,4 +1,4 @@
-// "use client"
+"use client"
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import {envHelper} from "@/shared/const/envHelper";
 import {StateSchema} from "../../shared/config/reduxConfig";

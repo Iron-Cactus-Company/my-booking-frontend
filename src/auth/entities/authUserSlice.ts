@@ -1,4 +1,4 @@
-// "use client"
+"use client"
 import { LS_KEYS } from "@/shared/const/LS_KEYS";
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {PURGE} from "redux-persist";
