@@ -22,7 +22,7 @@ export const authApi = createApi({
 
         login: builder.mutation<ILoginResponse, IUserLoginDto>({
             query: (loginDTO) => ({
-                url: 'auth/signIn',
+                url: 'auth/login',
                 method: 'POST',
                 body: loginDTO,
             }),
@@ -30,7 +30,7 @@ export const authApi = createApi({
 
         register: builder.mutation<Object, IUserRegisterDto>({
             query: (registerDto) => ({
-                url: '/profile',
+                url: '/businessprofile',
                 method: 'POST',
                 body: registerDto,
             }),

@@ -3,10 +3,7 @@ import { FieldValues, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { toast } from 'react-toastify';
 import {ValidationRegisterSchema} from './RegisterValidation';
-import {useDispatch} from "react-redux";
-import {getJwtExpTimeStamp} from "@/shared/lib/getJwtExpTimeStamp";
-import {useLoginMutation} from "@/auth/entities/authApi";
-import {authUserActions} from "@/auth/entities/authUserSlice";
+import {useRegisterMutation,authUserActions} from "@/auth";
 
 type Props = {
     onSuccessRegister?: () => void;
@@ -22,8 +19,6 @@ export const useRegisterForm = ({onSuccessRegister}: Props) => {
         resolver: yupResolver(ValidationRegisterSchema),
     });
 
-    const dispatch = useDispatch();
-
 
     const [login,
         {
@@ -32,19 +27,14 @@ export const useRegisterForm = ({onSuccessRegister}: Props) => {
             isError,
             error
         }
-    ] = useLoginMutation();
+    ] = useRegisterMutation();
 
     async function onFormSubmit(fieldValues: FieldValues) {
-        await login(fieldValues as IUserLoginDto);
+        await login(fieldValues as IUserRegisterDto);
     }
 
     useEffect(() => {
         if (data) {
-            dispatch(authUserActions.setAccessTokenInfo({
-                    accessToken: data.accessToken,
-                    accessTokenExpiresAt: getJwtExpTimeStamp(data.accessToken)
-                }
-            ));
             toast.success('Successfully registered!');
             onSuccessRegister && onSuccessRegister();
             return;
@@ -57,7 +47,7 @@ export const useRegisterForm = ({onSuccessRegister}: Props) => {
         }
 
 
-    }, [data, isLoading, error, dispatch, onSuccessRegister]);
+    }, [data, isLoading, error, onSuccessRegister]);
 
     return {
         register,
