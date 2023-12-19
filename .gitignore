@@ -6,6 +6,13 @@
 .pnp.js
 .yarn/install-state.gz
 
+# Default ignored files
+/shelf/
+/workspace.xml
+# Editor-based HTTP Client requests
+/httpRequests/
+
+
 # testing
 /coverage
 
@@ -34,3 +41,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+/.idea/my-booking-frontend.iml
+/.idea/vcs.xml
+/.idea/modules.xml
+/.idea/.gitignore
