@@ -31,7 +31,7 @@ export default function Home() {
     },
     {
       id: "3",
-      title: 'Haircut',
+      service: 'Haircut',
       start: '2024-01-03T18:00:00',
       end: '2024-01-04T20:30:00',
       client: {
@@ -43,7 +43,7 @@ export default function Home() {
   ];
 
   return (
-    <main className="min-h-screen  p-2 sm:p-24">
+    <main className="p-2 sm:p-12">
       <h1 className="text-5xl font-black">Main page</h1>
       <AppCalendar events={fetchedEvents}/>
     </main>

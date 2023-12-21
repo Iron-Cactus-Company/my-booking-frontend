@@ -39,9 +39,9 @@ export default function RegistrationForm() {
                                       placeholder:text-gray-400 
                                       focus:ring-2 focus:ring-inset 
                                       focus:ring-indigo-600 sm:text-sm 
-                                      sm:leading-6 ${errors.email ? 'border-red-500' : ''}`}
+                                      sm:leading-6 ${errors?.email ? 'border-red-500' : ''}`}
                                 />
-                                {errors.email && (
+                                {errors?.email && (
                                     <p className="text-red-500 text-sm mt-1">{errors?.email?.message}</p>
                                 )}
                             </div>
@@ -63,9 +63,9 @@ export default function RegistrationForm() {
                                     text-gray-900 shadow-sm ring-1 ring-inset
                                      ring-gray-300 placeholder:text-gray-400 focus:ring-2
                                       focus:ring-inset focus:ring-indigo-600 
-                                      sm:text-sm sm:leading-6 ${errors.name ? 'border-red-500' : ''}`}
+                                      sm:text-sm sm:leading-6 ${errors?.name ? 'border-red-500' : ''}`}
                                 />
-                                {errors.name && (
+                                {errors?.name && (
                                     <p className="text-red-500 text-sm mt-1">{errors?.name?.message}</p>
                                 )}
                             </div>
@@ -86,9 +86,9 @@ export default function RegistrationForm() {
                                      text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 
                                      placeholder:text-gray-400 focus:ring-2 focus:ring-inset 
                                      focus:ring-indigo-600 sm:text-sm
-                                     sm:leading-6 ${errors.phone ? 'border-red-500' : ''}`}
+                                     sm:leading-6 ${errors?.phone ? 'border-red-500' : ''}`}
                                 />
-                                {errors.phone && (
+                                {errors?.phone && (
                                     <p className="text-red-500 text-sm mt-1">{errors?.phone?.message}</p>
                                 )}
                             </div>
@@ -108,9 +108,9 @@ export default function RegistrationForm() {
                                     className={`w-full rounded-md border-1 py-1.5 text-gray-900 
                                     shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 
                                     focus:ring-inset focus:ring-indigo-600 sm:text-sm 
-                                    sm:leading-6 ${errors.password ? 'border-red-500' : ''}`}
+                                    sm:leading-6 ${errors?.password ? 'border-red-500' : ''}`}
                                 />
-                                {errors.password && (
+                                {errors?.password && (
                                     <p className="text-red-500 text-sm mt-1">{errors?.password?.message}</p>
                                 )}
                             </div>
@@ -131,9 +131,9 @@ export default function RegistrationForm() {
                                     className={`w-full rounded-md border-1 py-1.5 text-gray-900 shadow-sm ring-1
                                      ring-inset ring-gray-300 placeholder:text-gray-400 
                                     focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 
-                                    ${errors.repeatPassword ? 'border-red-500' : ''}`}
+                                    ${errors?.repeatPassword ? 'border-red-500' : ''}`}
                                 />
-                                {errors.repeatPassword && (
+                                {errors?.repeatPassword && (
                                     <p className="text-red-500 text-sm mt-1">{errors?.repeatPassword?.message}</p>
                                 )}
                             </div>
@@ -155,7 +155,7 @@ export default function RegistrationForm() {
                         Already a member?{' '}
                         <Link
                             className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500"
-                            href={RoutePaths.auth_login}
+                            href={RoutePaths.AUTH_LOGIN}
                         >
                             Log in
                         </Link>
