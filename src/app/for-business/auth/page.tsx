@@ -10,8 +10,8 @@ const AuthMainPage = () => {
 
 
     useEffect(() => {
-        if (pathName === `${RoutePaths.AUTH}` || pathName=== `${RoutePaths.AUTH}/`) {
-            router.push(`${RoutePaths.AUTH_LOGIN}`);
+        if (pathName === `${RoutePaths.FOR_BUSINESS_AUTH}` || pathName=== `${RoutePaths.FOR_BUSINESS_AUTH}/`) {
+            router.push(`${RoutePaths.FOR_BUSINESS_AUTH_LOGIN}`);
         }
     }, [router, pathName]);
 

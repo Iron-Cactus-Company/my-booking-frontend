@@ -155,7 +155,7 @@ export default function RegistrationForm() {
                         Already a member?{' '}
                         <Link
                             className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500"
-                            href={RoutePaths.AUTH_LOGIN}
+                            href={RoutePaths.FOR_BUSINESS_AUTH_LOGIN}
                         >
                             Log in
                         </Link>

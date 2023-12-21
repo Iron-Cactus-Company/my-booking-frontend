@@ -3,6 +3,7 @@ import {Inter} from 'next/font/google'
 import './globals.css'
 import {Providers} from "@/shared/config/Providers";
 import Navbar from "@/shared/ui/Navbar";
+import {RoutePaths} from "@/shared/const/RoutePaths";
 
 const inter = Inter({subsets: ['latin']})
 
@@ -12,16 +13,31 @@ export const metadata: Metadata = {
 }
 
 const navMenuItems: NavBarMenuItem[] = [
-    { label: 'Home', path: '/' },
-    { label: 'About', path: '/about' },
-    { label: 'Services', path: '/services' },
-    { label: 'Contact', path: '/contact' },
+    { label: 'Home', path: RoutePaths.MAIN},
+    { label: 'About', path: RoutePaths.ABOUT },
+    { label: 'Services', path: RoutePaths.SERVICES },
+    { label: 'Contact', path: RoutePaths.CONTACT},
+    { label: 'For business', path: RoutePaths.FOR_BUSINESS },
 ];
 export default function RootLayout({
     children,
 }: {
     children: React.ReactNode
 }) {
+
+    // const headersList = headers();
+    // const domain = headersList.get('host') || "";
+    // const fullUrl = headersList.get('referer') || "";
+
+    // const headersList = headers();
+    // const fullUrl = headersList.get('referer') || "";
+    // const url = new URL(fullUrl);
+    // const pathname = url.pathname;
+    //
+    // console.log(pathname);
+
+
+
     return (
     <html lang="en" className="h-full bg-white">
     <body className={inter.className + " " + "min-h-full"} >

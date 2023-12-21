@@ -94,7 +94,7 @@ export default function LoginForm({onSuccessLogin}: Props) {
                         Not a member?{' '}
                         <Link
                             className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500"
-                            href={RoutePaths.AUTH_REGISTER}
+                            href={RoutePaths.FOR_BUSINESS_AUTH_REGISTER}
                         >
                             Register
                         </Link>
