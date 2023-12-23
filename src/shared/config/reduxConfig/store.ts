@@ -7,6 +7,7 @@ import {FLUSH, PAUSE, PERSIST, PURGE, REGISTER, REHYDRATE} from "redux-persist";
 import {setupListeners} from "@reduxjs/toolkit/query";
 import {envHelper} from "@/shared/const/envHelper";
 import {authMiddleware,authUserReducer,authApi} from "@/auth";
+import {companyApi} from "@/company";
 
 
 const createNoopStorage= () => {
@@ -35,6 +36,7 @@ export function createReduxStore(initialState?: StateSchema) {
     const rootReducer = combineReducers({
         authUser: authUserReducer,
         [authApi.reducerPath]: authApi.reducer,
+        [companyApi.reducerPath]: companyApi.reducer,
     });
 
 
@@ -64,6 +66,7 @@ export function createReduxStore(initialState?: StateSchema) {
                 },
             }).concat(
                 authApi.middleware,
+                companyApi.middleware,
                 authMiddleware,
             ),
 

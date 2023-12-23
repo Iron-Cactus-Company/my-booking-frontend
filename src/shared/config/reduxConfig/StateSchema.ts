@@ -1,16 +1,14 @@
-// import {authApi, AuthUserSchema} from "@/entities/Auth";
-// import {clanApi} from "@/entities/Clan";
-// import {galleryApi} from "@/entities/Gallery";
+// import {authApi, AuthUserSchema} from "@/entitity/Auth";
+// import {clanApi} from "@/entitity/Clan";
+// import {galleryApi} from "@/entitity/Gallery";
 
 
-import {authApi} from "@/auth/entities/authApi";
+import {authApi} from "@/auth";
+import {companyApi} from "@/company";
 
 export interface StateSchema {
     authUser: AuthUserSchema;
     [authApi.reducerPath]: ReturnType<typeof authApi.reducer>;
-    // [clanApi.reducerPath]: ReturnType<typeof clanApi.reducer>;
-    // [galleryApi.reducerPath]: ReturnType<typeof galleryApi.reducer>;
-
-
+    [companyApi.reducerPath]: ReturnType<typeof companyApi.reducer>;
 }
 

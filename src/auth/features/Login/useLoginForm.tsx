@@ -7,8 +7,8 @@ import { useRouter } from 'next/navigation';
 import { ValidationLoginSchema } from './LoginValidation';
 import {useDispatch} from "react-redux";
 import {getJwtExpTimeStamp} from "@/shared/lib/getJwtExpTimeStamp";
-import {useLoginMutation} from "@/auth/entities/authApi";
-import {authUserActions} from "@/auth/entities/authUserSlice";
+import {useLoginMutation} from "@/auth/entitity/authApi";
+import {authUserActions} from "@/auth/entitity/authUserSlice";
 
 type Props = {
     onSuccessLogin?: () => void;

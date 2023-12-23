@@ -3,14 +3,6 @@
 
 import {useState} from "react";
 
-interface ICompany {
-    name: string;
-    email: string;
-    phone: string;
-    address: string;
-    description?: string;
-}
-
 interface IOpeningHours {
     mondayStart: string;
     mondayEnd: string;
