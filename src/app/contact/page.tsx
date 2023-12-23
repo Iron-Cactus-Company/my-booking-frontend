@@ -11,7 +11,7 @@ const ContactPage = () => {
         <div className="container mx-auto p-8 bg-gray-100 rounded-lg shadow-lg text-center">
             <h1 className="text-4xl font-bold mb-6">Contact Us</h1>
             <p className="mb-6">
-                Have questions or need assistance? We're here to help!
+                Have questions or need assistance? We are here to help!
             </p>
             <div className="mb-6 text-left inline-block">
                 <p className="mb-2 font-bold text-gray-700">

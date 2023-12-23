@@ -13,7 +13,7 @@ interface StoreProviderProps {
 
 
 // export const store = createReduxStore();
-export const { store, persistor } = createReduxStore();
+export const { store, persistor, storage } = createReduxStore();
 
 export const StoreProvider = (props: StoreProviderProps) => {
     const {

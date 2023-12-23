@@ -2,7 +2,7 @@
 import {AuthLoginForm} from "@/auth";
 import {useRouter} from "next/navigation";
 import {RoutePaths} from "@/shared/const/RoutePaths";
-export default function () {
+export default function AuthLogin() {
 
     const router = useRouter()
     function handleSuccessLogin(){

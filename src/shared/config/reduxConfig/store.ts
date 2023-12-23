@@ -1,3 +1,4 @@
+
 import {combineReducers, configureStore} from "@reduxjs/toolkit";
 import { persistStore, persistReducer } from 'redux-persist'
 import createWebStorage from 'redux-persist/lib/storage/createWebStorage';
@@ -47,7 +48,6 @@ export function createReduxStore(initialState?: StateSchema) {
     const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 
-
     const store = configureStore({
         // reducer: rootReducer,
         reducer: persistedReducer,
@@ -73,7 +73,7 @@ export function createReduxStore(initialState?: StateSchema) {
 
     setupListeners(store.dispatch);
 
-    return { store, persistor };
+    return { storage, store, persistor };
 
 }
 

@@ -7,6 +7,7 @@ export enum AppRoutesLinks {
     // AUTH_SESSION_EXP = "AUTH_SESSION_EXP",
 
     FOR_BUSINESS = "FOR_BUSINESS",
+    FOR_BUSINESS_SETTINGS = "FOR_BUSINESS_SETTINGS",
     FOR_BUSINESS_AUTH = "FOR_BUSINESS_AUTH",
     FOR_BUSINESS_AUTH_LOGIN = "FOR_BUSINESS_AUTH_LOGIN",
     FOR_BUSINESS_AUTH_REGISTER = "FOR_BUSINESS_AUTH_REGISTER",
@@ -34,10 +35,12 @@ export const RoutePaths: Record<AppRoutesLinks, string> = {
     // [AppRoutesLinks.AUTH_SESSION_EXP]: "/auth/sessionExpired",
 
     [AppRoutesLinks.FOR_BUSINESS]: "/for-business",
+    [AppRoutesLinks.FOR_BUSINESS_SETTINGS]: "/for-business/settings",
     [AppRoutesLinks.FOR_BUSINESS_AUTH]: "/for-business/auth",
     [AppRoutesLinks.FOR_BUSINESS_AUTH_LOGIN]: "/for-business/auth/login",
     [AppRoutesLinks.FOR_BUSINESS_AUTH_REGISTER]: "/for-business/auth/register",
     [AppRoutesLinks.FOR_BUSINESS_AUTH_LOGOUT]: "/for-business/auth/logout",
+
 
 
 

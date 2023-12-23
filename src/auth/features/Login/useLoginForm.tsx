@@ -1,3 +1,4 @@
+'use client'
 import { useEffect } from 'react';
 import { FieldValues, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -56,13 +57,12 @@ export const useLoginForm = ({onSuccessLogin}: Props) => {
             ));
             toast.success('Welcome!');
             handleSuccessLogin();
-            router.push('/desired-page');
             return;
         }
 
         if (error) {
             // @ts-ignore
-            toast.error(error?.data?.message);
+            toast.error(error?.data?.message || "Credentials are not valid");
             return;
         }
 

@@ -57,9 +57,9 @@ export const selectAuthUserState = (state: StateSchema) => state.authUser;
 // Selector to get the access token info from the authUser state
 export const selectAccessTokenInfo = (state: StateSchema) => state.authUser.accessTokenInfo;
 
-export const selectIsUserLoggedIn = (state: StateSchema): boolean => {
+export const selectIsBusinessLoggedIn = (state: StateSchema): boolean => {
     const accessTokenExpiresAt = state.authUser.accessTokenInfo?.accessTokenExpiresAt;
-
-    // Check if the accessTokenExpiresAt is a valid timestamp and not expired
-    return accessTokenExpiresAt ? accessTokenExpiresAt > Date.now() : false;
+    if(!accessTokenExpiresAt)  return false;
+    // Check if the accessTokenExpiresAt is not expired
+    return new Date(accessTokenExpiresAt * 1000) > new Date();
 };

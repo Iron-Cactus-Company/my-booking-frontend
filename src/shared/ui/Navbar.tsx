@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import {usePathname } from 'next/navigation';
+import {useDispatch} from "react-redux";
 
 declare global {
     type NavBarMenuItem = {
@@ -15,6 +16,7 @@ declare global {
 }
 
 const Navbar = ({ menuItems }: NavbarProps) => {
+
     const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
 
     const handleMobileMenuToggle = () => {
