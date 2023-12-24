@@ -1,4 +1,6 @@
 declare type IOpeningHours = {
+    id: string;
+
     mondayStart: string;
     mondayEnd: string;
     tuesdayStart: string;
@@ -13,4 +15,6 @@ declare type IOpeningHours = {
     saturdayEnd: string;
     sundayStart: string;
     sundayEnd: string;
+
+    companyId: string;
 }
