@@ -1,16 +1,21 @@
 'use client'
 import AppCalendar from "@/shared/ui/AppCalendar";
 import React from "react";
+import {BookingList} from "@/home/features/bookings/BookingList";
+import {IBooking} from "@/home/entity/booking";
+import {BookingStatusType} from "@/home/entity/bookingStatusType";
 
 export default function Home() {
 
-  const fetchedEvents = [
+  const fetchedEvents: IBooking[] = [
     {
       id: "1",
-      service: 'Depilation',
-      start: '2024-01-01T10:00:00',
-      end: '2024-01-02T12:00:00',
+      serviceId: 'Depilation',
+      start: 1703419702,
+      end: 1703419702,
+      status: BookingStatusType.Pending,
       client: {
+        id: '34567-3456-3456-23456',
         name : "Pekka Pekkanen",
         email: "Pekkanen@gmail.com",
         phone: "+35845872037"
@@ -18,23 +23,25 @@ export default function Home() {
     },
     {
       id: "2",
-      service: 'Сoloring',
-      start: '2024-01-03T14:30:00',
-      end: '2024-01-04T16:45:00',
-
+      serviceId: 'Depilation',
+      start: 1703419702,
+      end: 1703419702,
+      status: BookingStatusType.Pending,
       client: {
+        id: '34567-3456-3456-23456',
         name : "Petr Petrson",
         email: "Petrson@gmail.com",
         phone: "+35845872037"
       }
-
     },
     {
       id: "3",
-      service: 'Haircut',
-      start: '2024-01-03T18:00:00',
-      end: '2024-01-04T20:30:00',
+      serviceId: '34567-3456-3456-23456',
+      start: 1703419702,
+      end: 1703419702,
+      status: BookingStatusType.Pending,
       client: {
+        id: '34567-3456-3456-23456',
         name : "Hekka Hendrikson",
         email: "Hendrikson@gmail.com",
         phone: "+35845872037"
@@ -46,6 +53,7 @@ export default function Home() {
     <main className="p-2 sm:p-12">
       <h1 className="text-5xl font-black">Main page</h1>
       <AppCalendar events={fetchedEvents}/>
+      <BookingList bookings={fetchedEvents} />
     </main>
   )
 }
