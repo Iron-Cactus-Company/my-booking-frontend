@@ -2,30 +2,9 @@
 
 
 import {useState} from "react";
-
-interface IOpeningHours {
-    mondayStart: string;
-    mondayEnd: string;
-    tuesdayStart: string;
-    tuesdayEnd: string;
-    wednesdayStart: string;
-    wednesdayEnd: string;
-    thursdayStart: string;
-    thursdayEnd: string;
-    fridayStart: string;
-    fridayEnd: string;
-    saturdayStart: string;
-    saturdayEnd: string;
-    sundayStart: string;
-    sundayEnd: string;
-}
-
-interface IService {
-    name: string;
-    durationS: number;
-    description?: string;
-    price: number;
-}
+import {CompanySettings} from "@/company/features/settings/CompanySettings";
+import OpeningHoursSettings from "@/company/features/settings/OpeningHoursSettings";
+import ServiceSettings from "@/company/features/settings/ServiceSettings";
 
 
 //load company info
@@ -56,7 +35,7 @@ const ohLoaded: IOpeningHours = {
 }
 
 //load company services
-const servicesLoaded: IService[] = [
+const servicesLoaded: ICompanyService[] = [
     {
         name: "Haircut 15 min",
         durationS: 900,
@@ -81,39 +60,34 @@ export default function ForBusiness () {
 
     const [company, setCompany] = useState<ICompany | null>(companyLoaded);
     const [oh, setOh] = useState<IOpeningHours | null>(ohLoaded);
-    const [services, setServices] = useState<IService[] | null>(servicesLoaded);
+    const [services, setServices] = useState<ICompanyService[] | null>(servicesLoaded);
 
+    async function saveCompanyChanges(companyToSave: ICompany) {
+        //logic for saving company settings
+        console.log("Company data Saved!");
+    }
+
+    async function saveOpeningHours(ohToSave: IOpeningHours) {
+        //logic for saving company settings
+        console.log("Opening Hours data Saved!");
+    }
+
+    async function saveServices(servicesToSave: ICompanyService[]) {
+        //logic for saving company settings
+        console.log("services data Saved!");
+    }
 
     return(
         <div>
-            <div>
-                <h3>Company info</h3>
-                {/*<input
-                    placeholder="type a name"
-                    type="text"
-                    value={company.name || ""}
-                    onChange={(e) => setName(e.target.value)}
-                />*/}
-                {/*<input>{company.email}</input>*/}
-                {/*<input>{company.phone}</input>*/}
-                {/*<input>{company.address}</input>*/}
-                {/*<input>{company.description}</input>*/}
-            </div>
+            <h3>Company info</h3>
+            <CompanySettings company={companyLoaded} saveChanges={saveCompanyChanges}/>
             <div>
                 <h3>Opening hours</h3>
-                {/*<p>Monday {oh.mondayStart} - {oh.mondayEnd}</p>*/}
-                {/*<p>Tuesday {oh.tuesdayStart} - {oh.tuesdayEnd}</p>*/}
-                {/*<p>Wednesday {oh.wednesdayStart} - {oh.wednesdayEnd}</p>*/}
-                {/*<p>Thursday {oh.thursdayStart} - {oh.thursdayEnd}</p>*/}
-                {/*<p>Friday {oh.fridayStart} - {oh.fridayEnd}</p>*/}
-                {/*<p>Saturday {oh.saturdayStart} - {oh.saturdayEnd}</p>*/}
-                {/*<p>Sunday {oh.sundayStart} - {oh.sundayEnd}</p>*/}
+                <OpeningHoursSettings oh={ohLoaded} saveChanges={saveOpeningHours}/>
             </div>
             <div>
                 <h3>Company services</h3>
-                <ul>
-                    {/*{services.map(item => <li key={item.name+item.price+item.durationS}>{item.name} {item.durationS/60}min {item.price}€ {item.description}</li>)}*/}
-                </ul>
+                <ServiceSettings services={servicesLoaded} saveChanges={saveServices}/>
             </div>
         </div>
     )
