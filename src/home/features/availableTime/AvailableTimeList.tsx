@@ -16,15 +16,13 @@ const availableTimeLoaded: IAvailableTime[] = [
 ];
 
 type AvailableTimeList = {
-    serviceId: string,
-    from: number,
-    to: number
+    availableTime: IAvailableTime
 }
 
-export const AvailableTimeList: React.FC<AvailableTimeList> = ({ serviceId, from, to }) => {
+export const AvailableTimeList: React.FC<AvailableTimeList> = ({ availableTime }) => {
 
     //TODO: API load available times list for the specified period
-
+    //http://localhost:5000/api/AvailableHours POST + IAvailableTime (availableTime from props)
     return (
         <div>
             {availableTimeLoaded.map((time, index) => (

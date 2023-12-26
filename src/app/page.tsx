@@ -72,6 +72,7 @@ export default function Home() {
   ];
 
   //TODO: API get companies by name
+  //http://localhost:5000/api/Company?name=lol GET
   async function searchByCompanyName(name: string) {
     console.log("Some companies found");
   }
@@ -90,7 +91,7 @@ export default function Home() {
 
         <div style={{border: "1px solid grey", margin: "50px 0"}}>
           <h2>Client view for making a booking</h2>
-          <AvailableTimeList serviceId="chosen service id" from={56757} to={4567477}/>
+          <AvailableTimeList availableTime={{serviceId: "chosen service id", from: 56757, to: 4567477}} />
         </div>
 
       </main>

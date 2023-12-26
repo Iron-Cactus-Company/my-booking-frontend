@@ -14,6 +14,7 @@ export const AvailableTimeCard: React.FC<AvailableTimeCardProps> = ({ availableT
     }
 
     //TODO: API create a new client
+    //http://localhost:5000/api/Client POST + ICreateClient
     const createClient = async (clientToCreate: ICreateClient) => {
 
     }
@@ -24,7 +25,10 @@ export const AvailableTimeCard: React.FC<AvailableTimeCardProps> = ({ availableT
     };
 
 
-    //TODO: API make a booking, for that u first create a client and when ICreateBooking
+    //TODO: API make a booking, for that u first create a client and when ICreateBooking with created clientId
+    // serviceId u can get from availableTime prop
+
+    //http://localhost:5000/api/booking POST + ICreateBooking
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         const createdClient= await createClient(client);

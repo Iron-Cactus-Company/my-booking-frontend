@@ -2,7 +2,7 @@ import React, {ChangeEvent, useState} from 'react';
 
 type CompanySettingsProps = {
     company: ICompany;
-    saveChanges: (company: ICompany) => Promise<any>
+    saveChanges: (company: IUpdateCompany) => Promise<any>
 };
 
 export const CompanySettings: React.FC<CompanySettingsProps> = ({ company, saveChanges } ) => {

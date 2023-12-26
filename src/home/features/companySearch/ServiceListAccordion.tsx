@@ -36,6 +36,7 @@ export const ServiceListAccordion: React.FC<ServiceListProps> = ({ companyId }) 
     const [showServices, setShowServices] = useState(false);
 
     //TODO: API get all services by companyId
+    //http://localhost:5000/api/Service?companyId=b182568f-1785-4f20-9e3d-ac38bd29b7e6 GET
     async function getCompanyServices(){
 
     }
