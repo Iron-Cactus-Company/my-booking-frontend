@@ -17,8 +17,6 @@ export enum AppRoutesLinks {
     ABOUT = "ABOUT",
     SERVICES = "SERVICES",
     CONTACT = "CONTACT",
-
-
     NOT_FOUND = "NOT_FOUND",
     NOT_FOUND_CATCH = "NOT_FOUND_CATCH",
 }

@@ -1,4 +1,4 @@
-import {CompanyCard} from "@/home/features/companySearch/CompanyCard";
+import {CompanyCard} from "@/company/entity/CompanyCard";
 
 type Props = {
     companies: ICompany[]
