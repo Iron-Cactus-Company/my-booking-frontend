@@ -7,6 +7,7 @@ import {BookingStatusType} from "@/home/entity/bookingStatusType";
 import {CompanyNameInput} from "@/home/features/companySearch/CompanyNameInput";
 import {CompanyList} from "@/home/features/companySearch/CompanyList";
 import {AvailableTimeList} from "@/home/features/availableTime/AvailableTimeList";
+import {useGetCompaniesQuery} from "@/company";
 
 export default function Home() {
 
@@ -77,6 +78,9 @@ export default function Home() {
     console.log("Some companies found");
   }
 
+
+  const {data: companiesData} = useGetCompaniesQuery({})
+
   return (
       <main className="p-2 sm:p-12">
         <h1 className="text-5xl font-black">Main page</h1>
@@ -86,7 +90,10 @@ export default function Home() {
         <div style={{border: "1px solid grey", margin: "50px 0"}}>
           <h2>Client view of main page</h2>
           <CompanyNameInput onSearch={searchByCompanyName}/>
-          <CompanyList companies={companiesLoaded}/>
+          {
+            // @ts-ignore
+              companiesData &&  <CompanyList companies={companiesData.data}/>
+          }
         </div>
 
         <div style={{border: "1px solid grey", margin: "50px 0"}}>

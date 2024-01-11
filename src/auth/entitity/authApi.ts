@@ -20,7 +20,7 @@ export const authApi = createApi({
         }),
     endpoints: (builder) => ({
 
-        login: builder.mutation<ILoginResponse, IUserLoginDto>({
+        login: builder.mutation<ILoginResponse, ICompanyLoginDto>({
             query: (loginDTO) => ({
                 url: 'auth/login',
                 method: 'POST',
@@ -28,7 +28,7 @@ export const authApi = createApi({
             }),
         }),
 
-        register: builder.mutation<Object, IUserRegisterDto>({
+        register: builder.mutation<Object, ICompanyRegisterDto>({
             query: (registerDto) => ({
                 url: '/businessprofile',
                 method: 'POST',

@@ -2,9 +2,9 @@
 
 
 import {useState} from "react";
-import {CompanySettings} from "@/company/features/settings/CompanySettings";
-import OpeningHoursSettings from "@/company/features/settings/OpeningHoursSettings";
-import ServiceSettings from "@/company/features/settings/ServiceSettings";
+import OpeningHoursSettings from "@/company/widgets/OpeningHoursSettings";
+import ServiceSettings from "@/company/widgets/ServiceSettings";
+import {CompanySettings} from "@/company/widgets/CompanySettings";
 
 
 //load company info
@@ -102,6 +102,8 @@ export default function ForBusiness () {
             //logic for saving service info
         }
     }
+
+
 
     return(
         <div>

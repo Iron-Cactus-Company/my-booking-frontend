@@ -30,7 +30,7 @@ const navMenuItemsBusiness: NavBarMenuItem[] = [
     { label: 'About', path: RoutePaths.ABOUT },
     // { label: 'Services', path: RoutePaths.SERVICES },
     { label: 'Contact', path: RoutePaths.CONTACT},
-    { label: 'Company settings', path: RoutePaths.FOR_BUSINESS },
+    { label: 'Settings', path: RoutePaths.FOR_BUSINESS },
 ];
 
 // declare type NavBarType = 'guest' | 'business';

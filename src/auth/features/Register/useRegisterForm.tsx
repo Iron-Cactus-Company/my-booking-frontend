@@ -31,7 +31,7 @@ export const useRegisterForm = ({onSuccessRegister}: Props) => {
     ] = useRegisterMutation();
 
     async function onFormSubmit(fieldValues: FieldValues) {
-        await login(fieldValues as IUserRegisterDto);
+        await login(fieldValues as ICompanyRegisterDto);
     }
 
     useEffect(() => {

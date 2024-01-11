@@ -1,10 +1,10 @@
-declare type IUserRegisterDto =  {
+declare type ICompanyRegisterDto =  {
     email: string,
     password: string,
     repeatPassword: string,
 };
 
-declare type IUserLoginDto = {
+declare type ICompanyLoginDto = {
     username: string,
     password: string,
 }

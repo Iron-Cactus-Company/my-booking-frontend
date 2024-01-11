@@ -19,9 +19,11 @@ export const companyApi = createApi({
     }),
     endpoints: (builder) => ({
 
-        getCompanies: builder.query<ICompany[], {}>({
+        getCompanies: builder.query<ICompany[], {page?: number, limit? : number}>({
             query: (options) => {
                 return {
+                    page: options.page,
+                    limit: options.limit,
                     url: companyUrl,
                     method: 'GET',
                 }
