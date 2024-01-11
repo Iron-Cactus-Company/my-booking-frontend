@@ -1,4 +1,3 @@
-import {IAvailableTime} from "@/home/entity/IAvailableTime";
 import {AvailableTimeCard} from "@/home/features/availableTime/AvailableTimeCard";
 
 const availableTimeLoaded: IAvailableTime[] = [

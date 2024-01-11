@@ -1,11 +1,11 @@
-import React, {ChangeEvent, useState} from 'react';
+import { ChangeEvent, useState } from 'react';
 
 type CompanySettingsProps = {
     company: ICompany;
-    saveChanges: (company: IUpdateCompany) => Promise<any>
+    saveChanges: (company: IUpdateCompany) => Promise<any>;
 };
 
-export const CompanySettings: React.FC<CompanySettingsProps> = ({ company, saveChanges } ) => {
+export const CompanySettings: React.FC<CompanySettingsProps> = ({ company, saveChanges }) => {
     const [currentCompany, setCurrentCompany] = useState<ICompany>(company);
     const [isEditing, setIsEditing] = useState<boolean>(false);
 
@@ -20,35 +20,44 @@ export const CompanySettings: React.FC<CompanySettingsProps> = ({ company, saveC
 
     const handleSave = async () => {
         setIsEditing(false);
-        await saveChanges(company);
+        await saveChanges(currentCompany);
     };
 
     return (
-        <div style={{border: "1px solid grey", margin: "10px 20px"}}>
-            <table>
+        <div className="border rounded-lg p-6 mb-8 shadow-md">
+            <table className="mb-4">
                 <tbody>
                 {isEditing ? (
                     <>
                         <tr>
-                            <td>Company Name:</td>
-                            <td><input type="text" name="name" value={company.name} onChange={handleChange}/></td>
+                            <td className="font-semibold text-left">Company Name:</td>
+                            <td>
+                                <input type="text" name="name" value={currentCompany.name} onChange={handleChange} className="border rounded p-2" />
+                            </td>
                         </tr>
                         <tr>
-                            <td>Email:</td>
-                            <td><input type="email" name="email" value={company.email} onChange={handleChange}/></td>
+                            <td className="font-semibold text-left">Email:</td>
+                            <td>
+                                <input type="email" name="email" value={currentCompany.email} onChange={handleChange} className="border rounded p-2" />
+                            </td>
                         </tr>
                         <tr>
-                            <td>Phone:</td>
-                            <td><input type="tel" name="phone" value={company.phone} onChange={handleChange}/></td>
+                            <td className="font-semibold text-left">Phone:</td>
+                            <td>
+                                <input type="tel" name="phone" value={currentCompany.phone} onChange={handleChange} className="border rounded p-2" />
+                            </td>
                         </tr>
                         <tr>
-                            <td>Address:</td>
-                            <td><input type="text" name="address" value={company.address} onChange={handleChange}/></td>
+                            <td className="font-semibold text-left">Address:</td>
+                            <td>
+                                <input type="text" name="address" value={currentCompany.address} onChange={handleChange} className="border rounded p-2" />
+                            </td>
                         </tr>
-                        {company.description !== undefined && (
+                        {currentCompany.description !== undefined && (
                             <tr>
-                                <td>Description:</td>
-                                <td><textarea name="description" value={company.description} onChange={handleChange}/>
+                                <td className="font-semibold text-left">Description:</td>
+                                <td>
+                                    <textarea name="description" value={currentCompany.description} onChange={handleChange} className="border rounded p-2" />
                                 </td>
                             </tr>
                         )}
@@ -56,32 +65,34 @@ export const CompanySettings: React.FC<CompanySettingsProps> = ({ company, saveC
                 ) : (
                     <>
                         <tr>
-                            <td>Company Name:</td>
+                            <td className="font-semibold text-left">Company Name:</td>
                             <td>{company.name}</td>
                         </tr>
                         <tr>
-                            <td>Email:</td>
+                            <td className="font-semibold text-left">Email:</td>
                             <td>{company.email}</td>
                         </tr>
                         <tr>
-                            <td>Phone:</td>
+                            <td className="font-semibold text-left">Phone:</td>
                             <td>{company.phone}</td>
                         </tr>
                         <tr>
-                            <td>Address:</td>
+                            <td className="font-semibold text-left">Address:</td>
                             <td>{company.address}</td>
                         </tr>
-                        {company.description && <tr>
-                            <td>Description:</td>
-                            <td>{company.description}</td>
-                        </tr>}
+                        {company.description && (
+                            <tr>
+                                <td className="font-semibold text-left">Description:</td>
+                                <td>{company.description}</td>
+                            </tr>
+                        )}
                     </>
                 )}
                 </tbody>
             </table>
             <button
                 onClick={isEditing ? handleSave : handleEdit}
-                style={{border:"1px solid black", backgroundColor: "black", color: "white", borderRadius: 20}}
+                className="border-solid border-black bg-black text-white rounded-lg p-2"
             >
                 {isEditing ? 'Save Changes' : 'Change Company Info'}
             </button>

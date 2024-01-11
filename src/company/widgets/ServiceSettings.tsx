@@ -1,4 +1,4 @@
-import React, { useState, ChangeEvent } from 'react';
+import { useState, ChangeEvent } from 'react';
 
 type ServiceListProps = {
     services: ICompanyService[];
@@ -11,10 +11,9 @@ const ServiceSettings: React.FC<ServiceListProps> = ({ services, saveChanges }) 
 
     const handleChange = (index: number, field: keyof ICompanyService) => (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         let value: string | number = e.target.value;
-        if (field === 'durationS')
-            value = Number(value) * 60;
+        if (field === 'durationS') value = Number(value) * 60;
 
-        const newServices = [...services];
+        const newServices = [...currentServices];
         newServices[index] = { ...newServices[index], [field]: value };
         setCurrentServices(newServices);
     };
@@ -29,48 +28,46 @@ const ServiceSettings: React.FC<ServiceListProps> = ({ services, saveChanges }) 
     };
 
     return (
-        <div style={{border: "1px solid grey", margin: "10px 20px"}}>
-            {services.map((service, index) => (
-                <div key={index} style={{border: "1px solid black", margin: "10px 20px"}}>
-                    <table>
+        <div className="border rounded-lg p-6 mb-8 shadow-md">
+            {currentServices.map((service, index) => (
+                <div key={index} className="border-solid border-black mb-4 p-4">
+                    <table className="mb-4">
                         <tbody>
                         <tr>
-                            <td>Service Name:</td>
+                            <td className="font-semibold text-left">Service Name:</td>
                             <td>
                                 {isEditing ? (
-                                    <input type="text" value={service.name} onChange={handleChange(index, 'name')}/>
+                                    <input type="text" value={service.name} onChange={handleChange(index, 'name')} className="border rounded p-2" />
                                 ) : (
                                     service.name
                                 )}
                             </td>
                         </tr>
                         <tr>
-                            <td>Duration (min):</td>
+                            <td className="font-semibold text-left">Duration (min):</td>
                             <td>
                                 {isEditing ? (
-                                    <input type="number" value={service.durationS / 60}
-                                           onChange={handleChange(index, 'durationS')}/>
+                                    <input type="number" value={service.durationS / 60} onChange={handleChange(index, 'durationS')} className="border rounded p-2" />
                                 ) : (
                                     service.durationS / 60
                                 )}
                             </td>
                         </tr>
                         <tr>
-                            <td>Description:</td>
+                            <td className="font-semibold text-left">Description:</td>
                             <td>
                                 {isEditing ? (
-                                    <textarea value={service.description || ''}
-                                              onChange={handleChange(index, 'description')}/>
+                                    <textarea value={service.description || ''} onChange={handleChange(index, 'description')} className="border rounded p-2" />
                                 ) : (
                                     service.description
                                 )}
                             </td>
                         </tr>
                         <tr>
-                            <td>Price:</td>
+                            <td className="font-semibold text-left">Price:</td>
                             <td>
                                 {isEditing ? (
-                                    <input type="number" value={service.price} onChange={handleChange(index, 'price')}/>
+                                    <input type="number" value={service.price} onChange={handleChange(index, 'price')} className="border rounded p-2" />
                                 ) : (
                                     service.price
                                 )}
@@ -82,7 +79,7 @@ const ServiceSettings: React.FC<ServiceListProps> = ({ services, saveChanges }) 
             ))}
             <button
                 onClick={isEditing ? handleSave : handleEdit}
-                style={{border:"1px solid black", backgroundColor: "black", color: "white", borderRadius: 20}}
+                className="border-solid border-black bg-black text-white rounded-lg p-2"
             >
                 {isEditing ? 'Save Changes' : 'Edit Services'}
             </button>

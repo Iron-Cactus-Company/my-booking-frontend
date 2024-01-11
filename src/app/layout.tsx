@@ -1,13 +1,10 @@
 'use client'
-import type {Metadata} from 'next'
 import {Inter} from 'next/font/google'
 import './globals.css'
 import {Providers} from "@/shared/config/Providers";
 import Navbar from "@/shared/ui/Navbar";
 import {RoutePaths} from "@/shared/const/RoutePaths";
-import {useDispatch} from "react-redux";
 import {store} from "@/shared/config/reduxConfig";
-import {storage} from "@/shared/config/reduxConfig/StoreProvider";
 import {selectIsBusinessLoggedIn} from "@/auth";
 
 const inter = Inter({subsets: ['latin']})

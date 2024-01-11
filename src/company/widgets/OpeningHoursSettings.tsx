@@ -1,10 +1,8 @@
-import React, { useState, ChangeEvent } from 'react';
-
-// Define the OpeningHours type
+import { useState, ChangeEvent } from 'react';
 
 type OpeningHoursProps = {
     oh: IOpeningHours;
-    saveChanges: (company: IOpeningHours) => Promise<any>
+    saveChanges: (company: IOpeningHours) => Promise<any>;
 };
 
 const OpeningHoursSettings: React.FC<OpeningHoursProps> = ({ oh, saveChanges }) => {
@@ -29,20 +27,16 @@ const OpeningHoursSettings: React.FC<OpeningHoursProps> = ({ oh, saveChanges }) 
     const dayToDisplay = (day: string) => day.charAt(0).toUpperCase() + day.slice(1);
 
     return (
-        <div style={{border: "1px solid grey", margin: "10px 20px"}}>
-            <table>
+        <div className="border rounded-lg p-6 mb-8 shadow-md">
+            <table className="mb-4">
                 <tbody>
                 {daysOfWeek.map(day => (
                     <tr key={day}>
-                        <td>{day.charAt(0).toUpperCase() + day.slice(1)}:</td>
+                        <td className="font-semibold text-left">{dayToDisplay(day)}:</td>
                         {isEditing ? (
                             <>
-                                <td><input type="time" name={`${day}Start`}
-                                           value={openingHours[`${day}Start` as keyof IOpeningHours]}
-                                           onChange={handleChange}/></td>
-                                <td><input type="time" name={`${day}End`}
-                                           value={openingHours[`${day}End` as keyof IOpeningHours]}
-                                           onChange={handleChange}/></td>
+                                <td><input type="time" name={`${day}Start`} value={openingHours[`${day}Start` as keyof IOpeningHours]} onChange={handleChange} className="border rounded p-2" /></td>
+                                <td><input type="time" name={`${day}End`} value={openingHours[`${day}End` as keyof IOpeningHours]} onChange={handleChange} className="border rounded p-2" /></td>
                             </>
                         ) : (
                             <>
@@ -56,7 +50,7 @@ const OpeningHoursSettings: React.FC<OpeningHoursProps> = ({ oh, saveChanges }) 
             </table>
             <button
                 onClick={isEditing ? handleSave : handleEdit}
-                style={{border:"1px solid black", backgroundColor: "black", color: "white", borderRadius: 20}}
+                className="border-solid border-black bg-black text-white rounded-lg p-2"
             >
                 {isEditing ? 'Save Changes' : 'Change Opening Hours'}
             </button>

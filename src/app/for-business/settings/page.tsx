@@ -15,14 +15,11 @@ export default function Companies() {
 
 
     return (
-        <div className="flex flex-col items-center justify-center">
-            <h1 className="mb-4">
-                Here you can see all your companies or add a new one
-            </h1>
+        <div className="flex flex-wrap justify-center">
 
             {/*// @ts-ignore*/}
             {dataCompanies?.data?.map((c: ICompany) => (
-                <div key={c.id} onClick={() => navigateToDesiredCompany(c.id)} className="w-1/4 mb-4 hover:cursor-pointer">
+                <div key={c.id} onClick={() => navigateToDesiredCompany(c.id)} className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-5/12 p-4 hover:cursor-pointer">
                     <CompanyCard company={c} showServices={false} />
                 </div>
             ))}

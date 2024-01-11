@@ -1,6 +1,5 @@
 'use client'
-import AppCalendar from "@/shared/ui/AppCalendar";
-import React from "react";
+import AppCalendar from "@/shared/ui/AppCalendar";;
 import {BookingList} from "@/home/features/bookings/BookingList";
 import {IBooking} from "@/home/entity/booking";
 import {BookingStatusType} from "@/home/entity/bookingStatusType";
@@ -78,8 +77,7 @@ export default function Home() {
     console.log("Some companies found");
   }
 
-
-  const {data: companiesData} = useGetCompaniesQuery({})
+  const {data: companiesData} = useGetCompaniesQuery({});
 
   return (
       <main className="p-2 sm:p-12">
@@ -87,20 +85,21 @@ export default function Home() {
         <AppCalendar events={fetchedEvents}/>
         <BookingList bookings={fetchedEvents}/>
 
-        <div style={{border: "1px solid grey", margin: "50px 0"}}>
-          <h2>Client view of main page</h2>
+        <div style={{border: "1px solid #d1d5db", borderRadius: "0.375rem", margin: "50px 0", padding: "16px"}}>
+          <h2 className="text-2xl font-bold mb-4">Client view of the main page</h2>
           <CompanyNameInput onSearch={searchByCompanyName}/>
           {
             // @ts-ignore
-              companiesData &&  <CompanyList companies={companiesData.data}/>
+              companiesData && <CompanyList companies={companiesData.data}/>
           }
         </div>
 
-        <div style={{border: "1px solid grey", margin: "50px 0"}}>
-          <h2>Client view for making a booking</h2>
-          <AvailableTimeList availableTime={{serviceId: "chosen service id", from: 56757, to: 4567477}} />
+        <div style={{border: "1px solid #d1d5db", borderRadius: "0.375rem", margin: "50px 0", padding: "16px"}}>
+          <h2 className="text-2xl font-bold mb-4">Client view for making a booking</h2>
+          <AvailableTimeList availableTime={{serviceId: "chosen service id", from: 56757, to: 4567477}}/>
         </div>
 
       </main>
   )
+
 }
