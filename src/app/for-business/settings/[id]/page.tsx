@@ -6,6 +6,10 @@ import OpeningHoursSettings from "@/company/widgets/OpeningHoursSettings";
 import ServiceSettings from "@/company/widgets/ServiceSettings";
 import {CompanySettings} from "@/company/widgets/CompanySettings";
 
+import { useRouter, usePathname } from 'next/navigation';
+import {useGetCompanyByIdQuery} from "@/company";
+// import {an} from "@fullcalendar/core/internal-common";
+
 
 //load company info
 const companyLoaded: ICompany = {
@@ -66,7 +70,14 @@ const servicesLoaded: ICompanyService[] = [
     }
 ];
 
-export default function ForBusiness () {
+
+type Props = {
+    params: {
+        id: string;
+    };
+}
+
+export default function ForBusiness ({ params: { id } }: Props) {
 
     //TODO: API read company, openingHours and services
     //http://localhost:5000/api/Auth/user GET logged in user info + company object
@@ -104,11 +115,23 @@ export default function ForBusiness () {
     }
 
 
+    const {data: CompanyData} = useGetCompanyByIdQuery(id);
+
+    if(!CompanyData) {
+        return (
+            <div>
+                failed to fetch
+            </div>
+        )
+    }
+
+
 
     return(
         <div>
             <h3>Company info</h3>
-            <CompanySettings company={companyLoaded} saveChanges={saveCompanyChanges}/>
+            {/*// @ts-ignore*/}
+            <CompanySettings company={(CompanyData.data as ICompany)} saveChanges={saveCompanyChanges}/>
             <div>
                 <h3>Opening hours</h3>
                 <OpeningHoursSettings oh={ohLoaded} saveChanges={saveOpeningHours}/>
@@ -120,3 +143,4 @@ export default function ForBusiness () {
         </div>
     )
 }
+
